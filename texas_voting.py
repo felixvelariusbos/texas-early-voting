@@ -22,7 +22,7 @@ for sheet in full_data.keys():
 def make_data(county):
 
     # get the days, in order of course. :)
-    days = range(4,19) # edit this to add a new day
+    days = range(4,22) # edit this to add a new day
     sheets = []
     for day in days:
         sheets.append('Oct-' + str(day))
