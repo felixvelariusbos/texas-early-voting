@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 
 # preload all the data so we're not constantly reloading it
 full_data = pd.read_excel('texas_data.xlsx', None)
+days = range(4,27) # edit this to add a new day
 
 # fix the column names
 for sheet in full_data.keys():
@@ -17,12 +18,11 @@ for sheet in full_data.keys():
                    'cuml_percent_early_voting', 'trash'] 
     
     full_data[sheet].columns = better_cols
-
+    full_data[sheet].index = full_data[sheet].county
 
 def make_data(county):
 
     # get the days, in order of course. :)
-    days = range(4,22) # edit this to add a new day
     sheets = []
     for day in days:
         sheets.append('Oct-' + str(day))
@@ -109,7 +109,7 @@ def make_multi_county_plot(counties = ['HAYS', 'BEXAR', 'TRAVIS']):
         'title': 'Percentage of Registered Texas Voters Who\'ve Already Voted',
         'yaxis_title': '% of Registered Voters',
         'yaxis': {
-            'range': [0,40],
+            'range': [0,70],
             'linecolor': '#aaa',
             'linewidth': 1,
             'showgrid': True,
@@ -130,6 +130,9 @@ def make_multi_county_plot(counties = ['HAYS', 'BEXAR', 'TRAVIS']):
     # put it all together in a nice Figure
     fig = go.Figure(lines, layout)
     return fig
+
+
+
 
 
 def make_county_options():
