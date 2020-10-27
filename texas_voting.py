@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import dash
 from dash.dependencies import Input,Output
 import dash_core_components as dcc
