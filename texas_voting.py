@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 
 # preload all the data so we're not constantly reloading it
 full_data = pd.read_excel('texas_data.xlsx', None)
-days = range(4,30) # edit this to add a new day
+days = range(4,31) # edit this to add a new day
 
 # fix the column names
 for sheet in full_data.keys():
